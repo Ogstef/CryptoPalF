@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+
+<section id="results"   class = "pt-4">
+<br><br>
+    {% if searched %}
+        <br><br>
+         <h1 class = "display-5 text-center my-4 text-muted" > You searched for: {{ searched }} </h1>
+
+         <div class = "container mx-4 px-4 lead text-center" >
+
+        {% for v in Currency %}
+            {{ v.name }} - {{ v.price }} {{ v.description }}
+              <img height="150" width="70" src="/static/website/img/{{ currency.avatar }}" alt="something went wrong">  <br>
+        {% endfor %}
+         </div>
+    {% else %}
+          <h1 class = "display-5 text-center my-4 text-muted" > No search criteria .. {{ searched }} </h1>
+    {% endif %}
+
+    </section >
+
+
+
+{% endblock %}

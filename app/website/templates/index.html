@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block body %}
+    {% if  user.is_authenticated %}
+
+
+
+        <div class="jumbotron jumbotron-fluid bg-dark text-white ">
+            <div class="container text-sm-center pt-5">
+                <h1 class="display-2">Welcome {{ user.username }}</h1>
+                <h3><a href="{% url 'website:rate' %}">Rate your favorite crypto safely!</a></h3>
+                <br>
+                <div>
+                    <a href="">
+                        <img src="{% static 'website/img/logo.png' %}" alt="Image">
+                    </a>
+                </div>
+                <br>
+
+                <div class="btn-group mt-4" role="group" aria-label="Callout buttons">
+                    <button type="button" class=" btn-primary btn-lg"><a class="text-white"
+                                                                         href="https://www.facebook.com/">Rate us on
+                        Facebook
+                    </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="jumbotron jumbotron-fluid bg-dark text-white ">
+            <div class="container text-sm-center pt-5">
+                <h1 class="display-2">Crypto Pal</h1>
+                <p class="lead">Welcome and don't forget to sign up!</p>
+                <br>
+                <div>
+                    <a href="">
+                        <img src="{% static 'website/img/logo.png' %}" alt="Image">
+                    </a>
+                </div>
+                <br>
+
+                <div class="btn-group mt-4" role="group" aria-label="Callout buttons">
+                    <button type="button" class=" btn-primary btn-lg"><a class="text-white"
+                                                                         href="{% url 'website:register' %}">Register</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+
+
+
+
+    <hr>
+    <div class="row py-4 text-muted">
+        <div class="col-md col-xl-5">
+            <p><strong>What are we?</strong></p>
+            <p>CryptoPal is a stand-alone wallet to keep track of your stacking currencies!</p>
+            <p><strong>By Stefanos David Georgiou</strong></p>
+        </div>
+        <div class="col-md col-xl-5 ml-auto">
+            <p><strong>Goals:</strong></p>
+            <div class="col-lg order-lg-2 text-white">
+                <p>We are an independent team of software developers and technical analysis experts.</p>
+                <p>Our goals are to expand into the cryptocurrency stage and create models that can predict future price
+                    movements.</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+{% endblock %}

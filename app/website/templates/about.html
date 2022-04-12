@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block body %}
+
+    <!-- about -->
+    <section id="about" class="pt-4">
+        <h1 class="display-4 text-center my-5 text-white">About Crypto Pal</h1>
+        <div class="row ">
+            <div class="col-lg order-lg-2 bg-dark text-white">
+                <h3 class="mb-4">Location</h3>
+                <img class="mb-4 img-fluid rounded d-none d-sm-block" src="{% static 'website/img/greece.jpg' %}"
+                     alt="Portland">
+                <p>Our base is located in beautiful Greece, but with worldwide goals.</p>
+                <p>Discover new features of securely monitoring your crypto wallet.</p>
+            </div>
+            <div class="col-lg order-lg-1 text-white">
+                <h3 class="mb-4 text-white">About</h3>
+                <p>Welcome to an ever-striving community of traders and pioneers in the world of cryptocurrencies.</p>
+                <p>Our goal is to gather statistics for user's most favorite cryptocurrencies,<br>
+                    along with details on the purchases they have made in order to determine future markets.</p>
+                <p>We gather anonymous information regarding traders and their markets tendencies,<br>
+                    to establish a more satisfactory and futuristic way of determining markets.</p>
+            </div>
+            <div class="col-lg order-3 bg-dark">
+                <h3 class="mb-4 text-white">Live Prices</h3>
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action"><strong>Bitcoin</strong>:<p
+                            class="card-header" id="txtBitcoin">PRICE</p></a>
+                    <a href="#" class="list-group-item list-group-item-action"><strong>Ethereum</strong>:<p
+                            class="card-header" id="txtEthereum">PRICE</p></a>
+                    <a href="#" class="list-group-item list-group-item-action"><strong>Litecoin</strong>:<p
+                            class="card-header" id="txtLitecoin">PRICE</p></a>
+                    <a href="#" class="list-group-item list-group-item-action"><strong>XRP</strong>:<p
+                            class="card-header" id="txtRipple">PRICE</p></a>
+                    <a href="#" class="list-group-item list-group-item-action"><strong>BNB</strong>:<p
+                            class="card-header" id="txtBnb">PRICE</p></a>
+                    <a href="#" class="list-group-item list-group-item-action"><strong>Tether</strong>:<p
+                            class="card-header" id="txtTether">PRICE</p></a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /about -->
+    <script>
+        $(window).on('load', function () {
+            $.getJSON('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=EUR', function (data) {
+                let btcInEur = data.EUR;
+                document.getElementById("txtBitcoin").innerText = `${btcInEur} €`;
+            });
+        });
+    </script>
+
+    <script>
+        $(window).on('load', function () {
+            $.getJSON('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=EUR', function (data) {
+                let ethInEur = data.EUR;
+                document.getElementById("txtEthereum").innerText = `${ethInEur} €`;
+            });
+        });
+    </script>
+
+    <script>
+        $(window).on('load', function () {
+            $.getJSON('https://min-api.cryptocompare.com/data/price?fsym=LTC&tsyms=EUR', function (data) {
+                let ltcInEur = data.EUR;
+                document.getElementById("txtLitecoin").innerText = `${ltcInEur} €`;
+            });
+        });
+    </script>
+    <script>
+        $(window).on('load', function () {
+            $.getJSON('https://min-api.cryptocompare.com/data/price?fsym=USDT&tsyms=EUR', function (data) {
+                let usdtInEur = data.EUR;
+                document.getElementById("txtTether").innerText = `${usdtInEur} €`;
+            });
+        });
+    </script>
+    <script>
+        $(window).on('load', function () {
+            $.getJSON('https://min-api.cryptocompare.com/data/price?fsym=BNB&tsyms=EUR', function (data) {
+                let bnbInEur = data.EUR;
+                document.getElementById("txtBnb").innerText = `${bnbInEur} €`;
+            });
+        });
+    </script>
+    <script>
+        $(window).on('load', function () {
+            $.getJSON('https://min-api.cryptocompare.com/data/price?fsym=XRP&tsyms=EUR', function (data) {
+                let xrpInEur = data.EUR;
+                document.getElementById("txtRipple").innerText = `${xrpInEur} €`;
+            });
+        });
+    </script>
+
+{% endblock %}

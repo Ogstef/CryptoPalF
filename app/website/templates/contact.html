@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_filters %}
+{% block body %}
+
+{% load crispy_forms_tags %}
+<br><br><br><br>
+<div class="bg-dark mx-auto p-2">
+        <h2 class="text-light">Contact us</h2>
+    </div>
+
+    <div class="mx-auto col-5">
+        <form action="https://formsubmit.co/72226309677ec960da4f2569601dae52" method="POST">
+            <div class="mb-3">
+                <label for="userEmail" class="form-label text-light">Email address</label>
+                <input type="email" class="form-control" id="userEmail" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="userName" class="form-label text-light">First Name</label>
+                <input type="text" class="form-control" id="userSubject" name="subject" required>
+            </div>
+            <div class="mb-3">
+                <label for="userLastname" class="form-label text-light">Last Name</label>
+                <input type="text" class="form-control" id="userSubject" name="subject" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="userSubject" class="form-label text-light">Subject</label>
+                <input type="text" class="form-control" id="userSubject" name="subject" required>
+            </div>
+            <div class="mb-3">
+                <label for="userMessage" class="form-label text-light">Message</label>
+                <textarea class="form-control" id="userMessage" rows="3" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+{% endblock %}

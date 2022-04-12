@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block body %}
+
+
+
+    <section id="cryptos" class="pt-4 bg-dark">
+        <h1 class="display-4 text-center my-5 text-muted">Cryptocurrencies</h1>
+        <div class="row">
+            {% for currency in v_currencies %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="card mb-3 bg-dark text-white">
+                        <img class="card-img-top bg-white " height="150" width="70" src="/static/website/img/{{ currency.avatar }}" alt="Vivianne">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ currency.name }} <p><br> All time high: {{ currency.price }} $</p> </h4>
+                            <p class="card-text"> {{ currency.description }} </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+
+
+{% endblock %}
